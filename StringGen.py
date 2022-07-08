@@ -1,16 +1,12 @@
-import random, string, sys
+import random
+import string
 
 
-def save(code):
-    file = open("strings.txt", 'a')
-    write_code = code + "\n"
-    file.write(write_code)
-    file.close()
+name = input("Enter Start name: ")
+amount = input("Enter amount of users: ")
 
+user = name + "".join(random.choices(string.ascii_letters, k=3))
 
-amount = int(input("Amount Of Strings > "))
-
-for x in range(int(amount)):
-    userStart = ''.join(random.choices(string.ascii_letters, k=4))
-    save(userStart)
-    print(f"Generated | {userStart} ")
+for i in range(int(amount)):
+    with open('usernames.txt', 'a') as f:
+        f.write(f'{user}\n')
